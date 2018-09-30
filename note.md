@@ -5,8 +5,32 @@
 2.@ComponentScan(value="com.kaka")：包扫描
 
 3.@Bean(name = "person1")：bean加入容器，没有name时默认方法名
+                            还有init-method，destory-method等属性
+                            /*初始化方法是在对象创建完成并赋好值，销毁方法是在容器关闭*/
+                            
+4.@Import({color.class,person.class}):快速给容器中添加bean（组件）
 
-4.@lazy：对于单例bean，采用懒加载，而不是已启动容器就加载bean
+5.@lazy：对于单例bean，采用懒加载，而不是已启动容器就加载bean
 
-5.@Conditional({WindowsCondition.class}):根据条件决定是否要将对象注入
+6.@Conditional({WindowsCondition.class}):根据条件决定是否要将对象注入
+
+7.@value("kaka"):为属性赋值
+
+8.@PropertySource(value={"classpath:/person.properties"}):读取外部配置文件中的key/value保存到环境变量中，使用${}取出
+
+9.@autowired 1）优先按照类型去容器中找对应的组件 2）如果找到相同类型的多个，再将属性名作为组件id去容器查找
+
+10.@Qualifier("person") 直接指定装配组件的id
+
+11.@Resource java规范中的注解，和autowired一样实现自动装配功能，默认按照组件名称进行装配
+
+12.implement XXXAware 自定义组件使用spring容器底层组件（applicationContext，beanFactory...）
+
+13.@Profile()环境搭建 ：根据当前环境，动态的切换一系列组件的功能 默认使用default
+    (1)切换环境时使用命令行参数：-Dspring.profiles.active=test  (2)可以使用java代码的方式：
+    ①设置需要激活的环境applicationContext.getEnviroment().setActiveProfiles("test")
+    ②注册主配置类：applicationContext.register(ProfileConfig.class)
+    ③启动刷新容器：applicationContext.refresh();
+    
+    
 
