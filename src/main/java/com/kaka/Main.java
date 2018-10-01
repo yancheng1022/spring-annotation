@@ -4,6 +4,8 @@ import com.kaka.aop.Calculator;
 import com.kaka.bean.Person;
 import com.kaka.config.AopConfig;
 import com.kaka.config.MainConfig;
+import com.kaka.config.TsConfig;
+import com.kaka.tx.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -30,9 +32,15 @@ public class Main {
             System.out.println(name);
         }
 
+        //spring aop
         AnnotationConfigApplicationContext applicationContext1 = new AnnotationConfigApplicationContext(AopConfig.class);
         Calculator calculator = applicationContext1.getBean(Calculator.class);
         calculator.div(1, 1);
+
+        //spring ÊÂÎñ
+        AnnotationConfigApplicationContext applicationContext3 = new AnnotationConfigApplicationContext(TsConfig.class);
+        UserService userService = applicationContext3.getBean(UserService.class);
+        userService.insertUser();
 
 
     }

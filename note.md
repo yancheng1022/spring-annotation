@@ -47,3 +47,10 @@
        7.以前xml中<aop:aspectj-autoproxy></aop:aspectj-autoproxy>开启注解版的切面功能
          现在在配置类中加入 @EnableAspectJAutoProxy 开启注解版的切面功能
 
+15.事务管理
+        1.导入相关依赖
+            数据源 数据库驱动 springjdbc模块
+        2.配置数据源 JdbcTemplate（spring提供的简化数据库操作的工具）
+        3.配置事务管理器来管理事务 @TransactionManager
+        4.@EnableTransactionManagement 开启基于注解的事务管理功能
+        5.给方法上标注@Transaction 表示当前方法是一个事务方法
