@@ -1,12 +1,16 @@
 package com.kaka;
 
+import com.kaka.aop.Calculator;
 import com.kaka.bean.Person;
+import com.kaka.config.AopConfig;
 import com.kaka.config.MainConfig;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main {
+
     public static void main(String[] args){
         //通过配置文件获取bean
 //        ApplicationContext ac = new ClassPathXmlApplicationContext("beans.xml");
@@ -26,7 +30,9 @@ public class Main {
             System.out.println(name);
         }
 
-
+        AnnotationConfigApplicationContext applicationContext1 = new AnnotationConfigApplicationContext(AopConfig.class);
+        Calculator calculator = applicationContext1.getBean(Calculator.class);
+        calculator.div(1, 1);
 
 
     }

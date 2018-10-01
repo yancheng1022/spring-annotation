@@ -12,7 +12,21 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>4.1.2.RELEASE</version>
+            <version>4.3.12.RELEASE</version>
+        </dependency>
+
+        <!--aop动态代理-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
+            <version>4.3.12.RELEASE</version>
+        </dependency>
+
+        <!--springJdbc模块-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>4.3.12.RELEASE</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.mchange/c3p0 -->
